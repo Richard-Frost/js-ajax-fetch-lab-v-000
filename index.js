@@ -1,12 +1,23 @@
+const token = '34aac727a539d537412a8182af7db0cf2d2566a7';
+
+
 function getToken() {
-  //change to your token to run in browser, but set
-  //back to '' before committing so all tests pass
-  return '';
+	return token 
 }
 
+// POST /repos/:owner/:repo/forks
+// https://api.github.com/repos/learn-co-curriculum/js-ajax-fetch-lab/forks
+
+
 function forkRepo() {
-  const repo = 'learn-co-curriculum/js-ajax-fetch-lab';
-  //use fetch to fork it!
+
+ fetch(`https://api.github.com/repos/learn-co-curriculum/js-ajax-fetch-lab/forks`), 
+  	{
+  		method: 'POST',
+  		headers: {
+  			Authorization: `token ${getToken()};`
+  		}
+  	}.then(res => console.log(res))
 }
 
 function showResults(json) {
